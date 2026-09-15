@@ -1,0 +1,16 @@
+{
+  "metals": {
+    "XAU": { "symbol": "XAU", "currency": "USD", "price": 2500, "updatedAt": "2026-09-11T18:00:00Z" },
+    "XAG": { "symbol": "XAG", "currency": "USD", "price": 30, "updatedAt": "2026-09-11T18:00:00Z" },
+    "XPT": { "symbol": "XPT", "currency": "USD", "price": 1000, "updatedAt": "2026-09-11T18:00:00Z" },
+    "XPD": { "symbol": "XPD", "currency": "USD", "price": 950, "updatedAt": "2026-09-11T18:00:00Z" },
+    "HG": { "symbol": "HG", "currency": "USD", "price": 4.5, "updatedAt": "2026-09-11T18:00:00Z" }
+  },
+  "currencies": {
+    "base": "USD",
+    "rates": {
+      "2026-09-11": { "EUR": 0.8, "JPY": 100 },
+      "2026-09-09": { "EUR": 1, "JPY": 125 }
+    }
+  }
+}

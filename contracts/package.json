@@ -1,0 +1,22 @@
+{
+  "name": "@cmc/contracts",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Bounded BSC testnet contract foundation for Commodity Market Capital",
+  "packageManager": "pnpm@10.26.1",
+  "scripts": {
+    "compile": "HARDHAT_DISABLE_TELEMETRY_PROMPT=true hardhat compile",
+    "test": "HARDHAT_DISABLE_TELEMETRY_PROMPT=true hardhat test",
+    "export:abi": "tsx scripts/export-abi.ts",
+    "deploy:testnet": "HARDHAT_DISABLE_TELEMETRY_PROMPT=true hardhat run scripts/deploy-testnet.ts --network bscTestnet",
+    "deploy:mainnet": "node -e \"console.error('REFUSED: mainnet deployment is disabled pending audited release approval.'); process.exit(1)\""
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^5.0.0",
+    "@openzeppelin/contracts": "^5.2.0",
+    "dotenv": "^16.6.1",
+    "hardhat": "^2.26.3",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3"
+  }
+}

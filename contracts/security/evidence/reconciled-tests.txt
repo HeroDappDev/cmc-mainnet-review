@@ -1,0 +1,51 @@
+
+> @cmc/contracts@0.1.0 test /home/runner/workspace/contracts
+> HARDHAT_DISABLE_TELEMETRY_PROMPT=true hardhat test
+
+
+
+  Incident controls — current foundation limitations
+    ✔ owner can stop creation for a quote without stopping existing buys or sells (643ms)
+    ✔ source outage blocks new creation but does not halt frozen-reference trading (70ms)
+    ✔ ownership handover requires acceptance and atomically revokes the outgoing owner as keeper (74ms)
+    ✔ cancelled or replaced handovers grant no authority and preserve unrelated keepers (67ms)
+    ✔ renouncing ownership clears a pending handover and the outgoing owner's keeper role (65ms)
+    ✔ no caller can enable migration through the existing entry point (46ms)
+
+  Launchpad economic tests (local Hardhat only)
+    current deployed-source curve
+      ✔ uses a fresh allowlisted 18-decimal reference and freezes it per market (60ms)
+      ✔ enforces reference freshness, quote allowlisting, first-buy minimum, fee bounds, slippage, and deadlines (69ms)
+      ✔ matches quoteBuy/quoteSell rounding and accounts every charged fee wei (65ms)
+      ✔ shows the completion refund, real proceeds, 200m LP discontinuity, and closed migration (56ms)
+      ✔ keeps holder distribution and protocol fee release explicitly owner-controlled (57ms)
+    independent proposed Pancake V2 graduation math
+      ✔ quantifies the all-proceeds/200m discontinuity and a feasible excess-retention alternative
+      ✔ shows that using all current proceeds would need more than the fixed 200m token reserve
+      ✔ provides two separately-labelled feasible constant changes for continuity
+      ✔ records the one-wei conservative completion case from the floored fee formula
+
+  Launchpad quote custody security (local Hardhat only)
+    ✔ uses the exact minimal final gross for 100, 200, and 300 bps fees (179ms)
+    ✔ rejects inbound fee and sender-surcharge tokens without changing market state (146ms)
+    ✔ rejects outbound taxes on sells, refunds, and holder/protocol payouts (158ms)
+    ✔ does not let a short inbound transfer in one market use another market's custody (61ms)
+    ✔ rejects rebase loss during a transfer and before the next operation (61ms)
+    ✔ rejects quote-token callback reentrancy atomically (54ms)
+    ✔ accepts ordinary buy, sell, refund, and fee payouts with exact deltas (102ms)
+    ✔ keeps a self-recipient payout as custody rather than erasing its liability (79ms)
+
+  TestOnlyOptionDGraduation (local-only candidate)
+    ✔ keeps deployed candidate runtime bytecode below the EIP-170 limit (39ms)
+    ✔ uses Option D's 80k/800m/200m math, exact-minimal completion, and burns LP (73ms)
+    ✔ rejects an existing/donated pair and leaves the market pending rather than bypassing it (110ms)
+    ✔ reverts atomically against a router that lies about used liquidity amounts (70ms)
+    ✔ rejects fee-on-transfer quote assets by observed balance deltas (38ms)
+    ✔ maintains aggregate same-quote liabilities across markets under deterministic buy/sell fuzzing (285ms)
+    ✔ requires exact nonzero liquidity minimums and a short graduation deadline (97ms)
+    ✔ has a permissionless irreversible timeout redemption that preserves fee isolation and final-claim dust (76ms)
+    ✔ allows the normal graduation winner to settle before timeout, making redemption unavailable (56ms)
+
+
+  32 passing (3s)
+

@@ -1,0 +1,50 @@
+{
+  "cluster": "devnet",
+  "authorizationReference": "devnet-change-2026-09-13-launchlab-graduation",
+  "pinned": {
+    "launchLabProgram": "DRay6fNdQ5J82H7xV6uq2aV3mNrUZ1J4PgSKsWgptcm6",
+    "cpmmProgram": "DRaycpLY18LhpbydsBWbVJtxpNv9oXPgjRSfpF2bWpYb",
+    "tokenProgram": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+    "associatedTokenProgram": "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL",
+    "systemProgram": "11111111111111111111111111111111",
+    "config": {
+      "id": "7ZR4zD7PYfY2XxoG1Gxcy2EgEeGYrpxrwzPuwdUBssEt",
+      "values": {
+        "curveType": 0,
+        "mintB": "So11111111111111111111111111111111111111112",
+        "migrateFee": "0",
+        "tradeFeeRate": "2500"
+      }
+    }
+  },
+  "lifecycle": {
+    "signatures": [
+      {
+        "role": "launch",
+        "signature": "launch-signature-fixture"
+      },
+      {
+        "role": "buy",
+        "signature": "buy-signature-fixture"
+      },
+      {
+        "role": "migration",
+        "signature": "migration-signature-fixture"
+      }
+    ],
+    "mint": "4vJ9JU1bJJE96FWSJKvHsmmFADCg4gpZQff4P3bkLKi",
+    "launchState": "8qbHbw2BbbTHBW1sbeqakYXVKRQM8Ne7pLK7m6CVfeR",
+    "platform": "CktRuQ2mttgRGkXJtyksdKHjUdc2C4TgDzyB98oEzy8",
+    "vaults": {
+      "base": "GgBaCs3NCBuZN12kCJgAW63ydqohFkHEdfdEXBPzLHq",
+      "quote": "LbUiWL3xVV8hTFYBVdbTNrpDo41NKS6o3LHHuDzjfcY"
+    },
+    "cpmm": {
+      "pool": "QWmroo4YnnMqYW3cnxWkFdaTxGD3P7vMSzwMHGbUzwF",
+      "baseVault": "US517G5965aydkZ46HS38QLi7UQiSojurfbQfKCELFx",
+      "quoteVault": "YMN9Qj5jPNp7j14VPcML1B6xGgcPWVZUGLFU3Mnyfaf",
+      "lpMint": "cGfHiC6Kgg3FpFZvgwGcswsCRtp4aBP2fzuXRQPizuN",
+      "config": "5MxLgy9oPdTC3YgkiePHqr3EoCRD9uLVYRQS2ANAs7wy"
+    }
+  }
+}

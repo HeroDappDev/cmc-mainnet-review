@@ -1,0 +1,117 @@
+{
+  "evidenceVersion": 1,
+  "cluster": "mainnet-beta",
+  "observedAt": "2026-09-15T04:12:26.623Z",
+  "proofFingerprintSha256": "f9990ac3f264cacee9261edf9b3548a7f178db7b39ddf4f0c51928039b87c627",
+  "finalizedState": {
+    "genesisHash": "5eykt4UsFv8P8NJdTREpY1vzqKqZKvdpKuc147dw2N9d",
+    "launchLab": {
+      "address": "LanMV9sAd7wArD4vJFi2qDdfnVhFxYSUg6eADduJ3uj",
+      "owner": "BPFLoaderUpgradeab1e11111111111111111111111",
+      "executable": true,
+      "baseline": {
+        "programAddress": "LanMV9sAd7wArD4vJFi2qDdfnVhFxYSUg6eADduJ3uj",
+        "programDataAddress": "D2QX47Tv2uhNNwFcnLCyJtLMZ4WGmc7eXxvyEmD6zNUh",
+        "codeFingerprint": "4c87da8e9fdeda6daf9d141e409577733d6248ae78f694557176fe2709a09657",
+        "deployedSlot": 446221802,
+        "upgradeAuthority": "FytDrVzDybM1TwFQPGb8qaxZR7dBCzNeqT3vtQsceZQK"
+      },
+      "programDataAddress": "D2QX47Tv2uhNNwFcnLCyJtLMZ4WGmc7eXxvyEmD6zNUh",
+      "programDataOwner": "BPFLoaderUpgradeab1e11111111111111111111111",
+      "programDataExecutable": false,
+      "deployedSlot": 446221802,
+      "codeFingerprint": "4c87da8e9fdeda6daf9d141e409577733d6248ae78f694557176fe2709a09657",
+      "upgradeAuthority": "FytDrVzDybM1TwFQPGb8qaxZR7dBCzNeqT3vtQsceZQK"
+    },
+    "cpmm": {
+      "address": "CPMMoo8L3F4NbTegBCKVNunggL7H1ZpdTHKxQB5qKP1C",
+      "owner": "BPFLoaderUpgradeab1e11111111111111111111111",
+      "executable": true,
+      "baseline": {
+        "programAddress": "CPMMoo8L3F4NbTegBCKVNunggL7H1ZpdTHKxQB5qKP1C",
+        "programDataAddress": "DMawCQzbgNTmbzaESc7o6pvL1KAeetY8zA7jNpzntHhU",
+        "codeFingerprint": "36537be95ba356056fa38b2847d928078c68bf6cd79b875c140e157e6452cc71",
+        "deployedSlot": 445763504,
+        "upgradeAuthority": "FytDrVzDybM1TwFQPGb8qaxZR7dBCzNeqT3vtQsceZQK"
+      },
+      "programDataAddress": "DMawCQzbgNTmbzaESc7o6pvL1KAeetY8zA7jNpzntHhU",
+      "programDataOwner": "BPFLoaderUpgradeab1e11111111111111111111111",
+      "programDataExecutable": false,
+      "deployedSlot": 445763504,
+      "codeFingerprint": "36537be95ba356056fa38b2847d928078c68bf6cd79b875c140e157e6452cc71",
+      "upgradeAuthority": "FytDrVzDybM1TwFQPGb8qaxZR7dBCzNeqT3vtQsceZQK"
+    },
+    "squadsProgram": {
+      "address": "SQDS4ep65T869zMMBKyuUq6aD6EgTu8psMjkvj52pCf",
+      "owner": "BPFLoaderUpgradeab1e11111111111111111111111",
+      "executable": true
+    },
+    "multisig": {
+      "address": "54BBLCExgxDZZdMVa5CYFdoHAMJSyeZFUppXiBo91uJN",
+      "owner": "SQDS4ep65T869zMMBKyuUq6aD6EgTu8psMjkvj52pCf",
+      "threshold": 2,
+      "members": [
+        {
+          "key": "5hgkueEk5Y1iNP1Q35hN7iahjivvk4d6zGzKKsnxJaNf",
+          "permissionsMask": 7
+        },
+        {
+          "key": "Atj7ip3wC544DRGJqeVEYFJpPc6C4dA6VvqMPmesdij9",
+          "permissionsMask": 7
+        }
+      ],
+      "transactionIndex": "1"
+    },
+    "vault": {
+      "address": "F2YSJfgpX76bCWqhAANfbp2gEhzUeTLvLHWxqZZAL5bG",
+      "index": 0
+    }
+  },
+  "payerFunding": [
+    {
+      "address": "Atj7ip3wC544DRGJqeVEYFJpPc6C4dA6VvqMPmesdij9",
+      "balanceLamports": 293952269,
+      "obligationLamports": 5521800,
+      "exactMinimumFundingLamports": 0,
+      "safetyMarginLamports": 0,
+      "recommendedFundingLamports": 0,
+      "components": [
+        {
+          "kind": "squadsTransactionRent",
+          "lamports": 3530600
+        },
+        {
+          "kind": "squadsProposalRent",
+          "lamports": 1981200
+        },
+        {
+          "kind": "lifecycleFee",
+          "lamports": 10000
+        }
+      ]
+    },
+    {
+      "address": "F2YSJfgpX76bCWqhAANfbp2gEhzUeTLvLHWxqZZAL5bG",
+      "balanceLamports": 201000000,
+      "obligationLamports": 5445760,
+      "exactMinimumFundingLamports": 0,
+      "safetyMarginLamports": 500000,
+      "recommendedFundingLamports": 500000,
+      "components": [
+        {
+          "kind": "platformRent",
+          "lamports": 5445760
+        }
+      ]
+    }
+  ],
+  "exactMinimumFundingLamports": 0,
+  "safetyMargin": {
+    "lamports": 500000,
+    "rationale": "Reviewed fixed reserve for finalized rent or base-fee drift between this observation and a separately authorized execution; it is not part of the exact minimum."
+  },
+  "recommendedFundingLamports": 500000,
+  "authorizationBoundary": "read-only-evidence-no-transfer-proposal-signing-submission-or-enablement",
+  "canonicalEvidenceJson": "{\"evidenceVersion\":1,\"cluster\":\"mainnet-beta\",\"observedAt\":\"2026-09-15T04:12:26.623Z\",\"proofFingerprintSha256\":\"f9990ac3f264cacee9261edf9b3548a7f178db7b39ddf4f0c51928039b87c627\",\"finalizedState\":{\"genesisHash\":\"5eykt4UsFv8P8NJdTREpY1vzqKqZKvdpKuc147dw2N9d\",\"launchLab\":{\"address\":\"LanMV9sAd7wArD4vJFi2qDdfnVhFxYSUg6eADduJ3uj\",\"owner\":\"BPFLoaderUpgradeab1e11111111111111111111111\",\"executable\":true,\"baseline\":{\"programAddress\":\"LanMV9sAd7wArD4vJFi2qDdfnVhFxYSUg6eADduJ3uj\",\"programDataAddress\":\"D2QX47Tv2uhNNwFcnLCyJtLMZ4WGmc7eXxvyEmD6zNUh\",\"codeFingerprint\":\"4c87da8e9fdeda6daf9d141e409577733d6248ae78f694557176fe2709a09657\",\"deployedSlot\":446221802,\"upgradeAuthority\":\"FytDrVzDybM1TwFQPGb8qaxZR7dBCzNeqT3vtQsceZQK\"},\"programDataAddress\":\"D2QX47Tv2uhNNwFcnLCyJtLMZ4WGmc7eXxvyEmD6zNUh\",\"programDataOwner\":\"BPFLoaderUpgradeab1e11111111111111111111111\",\"programDataExecutable\":false,\"deployedSlot\":446221802,\"codeFingerprint\":\"4c87da8e9fdeda6daf9d141e409577733d6248ae78f694557176fe2709a09657\",\"upgradeAuthority\":\"FytDrVzDybM1TwFQPGb8qaxZR7dBCzNeqT3vtQsceZQK\"},\"cpmm\":{\"address\":\"CPMMoo8L3F4NbTegBCKVNunggL7H1ZpdTHKxQB5qKP1C\",\"owner\":\"BPFLoaderUpgradeab1e11111111111111111111111\",\"executable\":true,\"baseline\":{\"programAddress\":\"CPMMoo8L3F4NbTegBCKVNunggL7H1ZpdTHKxQB5qKP1C\",\"programDataAddress\":\"DMawCQzbgNTmbzaESc7o6pvL1KAeetY8zA7jNpzntHhU\",\"codeFingerprint\":\"36537be95ba356056fa38b2847d928078c68bf6cd79b875c140e157e6452cc71\",\"deployedSlot\":445763504,\"upgradeAuthority\":\"FytDrVzDybM1TwFQPGb8qaxZR7dBCzNeqT3vtQsceZQK\"},\"programDataAddress\":\"DMawCQzbgNTmbzaESc7o6pvL1KAeetY8zA7jNpzntHhU\",\"programDataOwner\":\"BPFLoaderUpgradeab1e11111111111111111111111\",\"programDataExecutable\":false,\"deployedSlot\":445763504,\"codeFingerprint\":\"36537be95ba356056fa38b2847d928078c68bf6cd79b875c140e157e6452cc71\",\"upgradeAuthority\":\"FytDrVzDybM1TwFQPGb8qaxZR7dBCzNeqT3vtQsceZQK\"},\"squadsProgram\":{\"address\":\"SQDS4ep65T869zMMBKyuUq6aD6EgTu8psMjkvj52pCf\",\"owner\":\"BPFLoaderUpgradeab1e11111111111111111111111\",\"executable\":true},\"multisig\":{\"address\":\"54BBLCExgxDZZdMVa5CYFdoHAMJSyeZFUppXiBo91uJN\",\"owner\":\"SQDS4ep65T869zMMBKyuUq6aD6EgTu8psMjkvj52pCf\",\"threshold\":2,\"members\":[{\"key\":\"5hgkueEk5Y1iNP1Q35hN7iahjivvk4d6zGzKKsnxJaNf\",\"permissionsMask\":7},{\"key\":\"Atj7ip3wC544DRGJqeVEYFJpPc6C4dA6VvqMPmesdij9\",\"permissionsMask\":7}],\"transactionIndex\":\"1\"},\"vault\":{\"address\":\"F2YSJfgpX76bCWqhAANfbp2gEhzUeTLvLHWxqZZAL5bG\",\"index\":0}},\"payerFunding\":[{\"address\":\"Atj7ip3wC544DRGJqeVEYFJpPc6C4dA6VvqMPmesdij9\",\"balanceLamports\":293952269,\"obligationLamports\":5521800,\"exactMinimumFundingLamports\":0,\"safetyMarginLamports\":0,\"recommendedFundingLamports\":0,\"components\":[{\"kind\":\"squadsTransactionRent\",\"lamports\":3530600},{\"kind\":\"squadsProposalRent\",\"lamports\":1981200},{\"kind\":\"lifecycleFee\",\"lamports\":10000}]},{\"address\":\"F2YSJfgpX76bCWqhAANfbp2gEhzUeTLvLHWxqZZAL5bG\",\"balanceLamports\":201000000,\"obligationLamports\":5445760,\"exactMinimumFundingLamports\":0,\"safetyMarginLamports\":500000,\"recommendedFundingLamports\":500000,\"components\":[{\"kind\":\"platformRent\",\"lamports\":5445760}]}],\"exactMinimumFundingLamports\":0,\"safetyMargin\":{\"lamports\":500000,\"rationale\":\"Reviewed fixed reserve for finalized rent or base-fee drift between this observation and a separately authorized execution; it is not part of the exact minimum.\"},\"recommendedFundingLamports\":500000,\"authorizationBoundary\":\"read-only-evidence-no-transfer-proposal-signing-submission-or-enablement\"}",
+  "evidenceFingerprintSha256": "feea820371d09450556c6e460af630b965bfabfbfab95a34cde916d904a877e6"
+}

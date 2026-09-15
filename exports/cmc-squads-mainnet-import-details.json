@@ -1,0 +1,17 @@
+{
+  "cluster": "mainnet-beta",
+  "multisig": "54BBLCExgxDZZdMVa5CYFdoHAMJSyeZFUppXiBo91uJN",
+  "vault": "F2YSJfgpX76bCWqhAANfbp2gEhzUeTLvLHWxqZZAL5bG",
+  "vaultIndex": 0,
+  "instructionCount": 3,
+  "purposes": [
+    "createPlatform",
+    "setPlatformCpCreator",
+    "setCurveRuleManager"
+  ],
+  "platformId": "87PieZueSrA3VmuqJGQAF3KL8J56xy6etT3sQzA5CW5h",
+  "canonicalPackageSha256": "b0bdff5cd774c353ef3b06a28595515f09264cbba1e912f78d03754636238b8a",
+  "finalizedContextSlot": 447163059,
+  "simulationPassed": true,
+  "unitsConsumed": 44500
+}

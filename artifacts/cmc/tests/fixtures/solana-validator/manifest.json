@@ -1,0 +1,84 @@
+{
+  "schemaVersion": 2,
+  "snapshotId": "solana-mainnet-squads-platform-v1",
+  "cluster": "mainnet-beta",
+  "genesisHash": "5eykt4UsFv8P8NJdTREpY1vzqKqZKvdpKuc147dw2N9d",
+  "capturedAtSlot": 447133197,
+  "toolchain": {
+    "litesvm": "0.5.0",
+    "squadsSdk": "2.1.4",
+    "raydiumSdk": "0.2.69-alpha"
+  },
+  "proofPackageSha256": "faf482baedd7c819ede1aa1690c78c59f7cb02e20b153b905870bf8178d796a3",
+  "coverage": {
+    "loadedPrograms": [
+      "squads",
+      "launchLab"
+    ],
+    "seededAccounts": [
+      "multisig",
+      "cpmmConfig"
+    ],
+    "cpmmProgramCoverage": "identity-and-config-only; this Platform lifecycle does not invoke CPMM"
+  },
+  "reviewedProgramBaselines": {
+    "squads": {
+      "programDataAddress": "Fy3YMJCvwbAXUgUM5b91ucUVA3jYzwWLHL3MwBqKsh8n",
+      "deployedSlot": 302582236,
+      "upgradeAuthority": null,
+      "codeSha256": "00f38dd273a3809bba580b3feacd2cf35e0ce174d424852ab9a32a888eaf640e"
+    },
+    "launchLab": {
+      "programDataAddress": "D2QX47Tv2uhNNwFcnLCyJtLMZ4WGmc7eXxvyEmD6zNUh",
+      "deployedSlot": 446221802,
+      "upgradeAuthority": "FytDrVzDybM1TwFQPGb8qaxZR7dBCzNeqT3vtQsceZQK",
+      "codeSha256": "4c87da8e9fdeda6daf9d141e409577733d6248ae78f694557176fe2709a09657"
+    },
+    "cpmm": {
+      "programDataAddress": "DMawCQzbgNTmbzaESc7o6pvL1KAeetY8zA7jNpzntHhU",
+      "deployedSlot": 445763504,
+      "upgradeAuthority": "FytDrVzDybM1TwFQPGb8qaxZR7dBCzNeqT3vtQsceZQK",
+      "codeSha256": "36537be95ba356056fa38b2847d928078c68bf6cd79b875c140e157e6452cc71"
+    }
+  },
+  "programs": {
+    "squads": {
+      "programId": "SQDS4ep65T869zMMBKyuUq6aD6EgTu8psMjkvj52pCf",
+      "programDataAddress": "Fy3YMJCvwbAXUgUM5b91ucUVA3jYzwWLHL3MwBqKsh8n",
+      "sha256": "dec8d3e0fae58c7c8f2416e5f67c25e673f047afd6dd2bba4a47e0b29a01d34c",
+      "bytes": 1470416,
+      "deployedCodeBytes": 1470448,
+      "deployedCodeSha256": "00f38dd273a3809bba580b3feacd2cf35e0ce174d424852ab9a32a888eaf640e",
+      "loadableElfOffset": 32,
+      "deployedCodePrefixHex": "25c0a7490bf610fe6ad8090d6b7fe80b2856c3ad6175690a20e0981607ce2165"
+    },
+    "launchLab": {
+      "programId": "LanMV9sAd7wArD4vJFi2qDdfnVhFxYSUg6eADduJ3uj",
+      "programDataAddress": "D2QX47Tv2uhNNwFcnLCyJtLMZ4WGmc7eXxvyEmD6zNUh",
+      "sha256": "4c87da8e9fdeda6daf9d141e409577733d6248ae78f694557176fe2709a09657",
+      "bytes": 2560000,
+      "deployedCodeBytes": 2560000,
+      "deployedCodeSha256": "4c87da8e9fdeda6daf9d141e409577733d6248ae78f694557176fe2709a09657",
+      "loadableElfOffset": 0,
+      "deployedCodePrefixHex": ""
+    }
+  },
+  "accounts": {
+    "multisig": {
+      "address": "54BBLCExgxDZZdMVa5CYFdoHAMJSyeZFUppXiBo91uJN",
+      "lamports": 1656080,
+      "owner": "SQDS4ep65T869zMMBKyuUq6aD6EgTu8psMjkvj52pCf",
+      "executable": false,
+      "dataBase64": "4HR5ukShT+ytrcEW/ritulPdxmXNy+0F08ssVC3CsT7k8v+916az0gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAQAAAAAAAAABAAAAAAAAAAD/AgAAAEXa7vjBtOuQOT1ARnQBlsw694r5iD0tnFI7zMiD1XREB5L5bJavYMPZdry1w4Ho71rVFJdUJqAEvJSji8IGj1EwBwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+      "sha256": "b9c9db78875b0dcfd0a25553e6eb6de0dba429e4f77b0058cc44165b62c92d0e"
+    },
+    "cpmmConfig": {
+      "address": "D4FPEruKEHrG5TenZ2mpDGEfu1iUvTiqBxvpU8HLBvC2",
+      "lamports": 2584522,
+      "owner": "CPMMoo8L3F4NbTegBCKVNunggL7H1ZpdTHKxQB5qKP1C",
+      "executable": false,
+      "dataBase64": "2vQhaMvLK2//AAAAxAkAAAAAAADA1AEAAAAAAECcAAAAAAAAgNHwCAAAAAAF2xU6D/SH9pzeiQAf7ExGlbbUIV6iRLh71Otyh/hXqNcGSjj20XsRPl9m3PtjuHN//OJkSr8KALmLNDVtY4WD9AEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=",
+      "sha256": "c7e8d1592b7b9a38c095ad4d18f4111edeb0e93b3a6107adc6883e50bdce5b5c"
+    }
+  }
+}

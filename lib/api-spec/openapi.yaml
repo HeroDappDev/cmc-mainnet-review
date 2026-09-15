@@ -1,0 +1,594 @@
+openapi: 3.1.0
+info:
+  # Do not change the title, if the title changes, the import paths will be broken
+  title: Api
+  version: 0.1.0
+  description: API specification
+servers:
+  - url: /api
+    description: Base API path
+tags:
+  - name: health
+    description: Health operations
+  - name: Storage
+    description: Public token image storage operations.
+  - name: chain
+    description: Durable finalized Solana LaunchLab and CPMM indexer operations.
+paths:
+  /healthz:
+    get:
+      operationId: healthCheck
+      tags: [health]
+      summary: Health check
+      description: Returns server health status
+      responses:
+        "200":
+          description: Healthy
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HealthStatus"
+  /storage/token-images:
+    post:
+      operationId: uploadTokenImage
+      tags: [Storage]
+      summary: Upload a public token image
+      description: |
+        Uploads one PNG, JPEG, or WebP token icon to App Storage. The
+        unauthenticated local-simulation demo shares a server-wide budget of
+        60 uploads per 15 minutes. The request body is the image bytes and is
+        limited to 4 MiB. No external URL or caller-selected storage path is
+        accepted. When a browser sends Origin, it must match the request host.
+      requestBody:
+        required: true
+        content:
+          image/png:
+            schema:
+              $ref: "#/components/schemas/TokenImageBinary"
+          image/jpeg:
+            schema:
+              $ref: "#/components/schemas/TokenImageBinary"
+          image/webp:
+            schema:
+              $ref: "#/components/schemas/TokenImageBinary"
+      responses:
+        "200":
+          description: Public token image uploaded.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/TokenImageUploadResponse"
+        "400":
+          description: Empty image or image bytes do not match the declared type.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorEnvelope"
+        "413":
+          description: Image exceeds the 4 MiB size limit.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorEnvelope"
+        "415":
+          description: Image media type is not supported.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorEnvelope"
+        "429":
+          description: Shared server-wide demo upload budget exhausted (60 uploads per 15 minutes).
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorEnvelope"
+        "500":
+          description: Image could not be persisted.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorEnvelope"
+  /storage/token-images/{imageId}:
+    get:
+      operationId: getTokenImage
+      tags: [Storage]
+      summary: Serve a public token image
+      parameters:
+        - name: imageId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+          description: Server-generated token image identifier.
+      responses:
+        "200":
+          description: Public token image bytes.
+          content:
+            image/png:
+              schema:
+                type: string
+                format: binary
+            image/jpeg:
+              schema:
+                type: string
+                format: binary
+            image/webp:
+              schema:
+                type: string
+                format: binary
+        "404":
+          description: Token image was not found.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorEnvelope"
+        "500":
+          description: Token image could not be served.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorEnvelope"
+  /chain/config:
+    get:
+      operationId: getChainConfig
+      tags: [chain]
+      summary: Get finalized Solana indexer configuration
+      responses:
+        "200":
+          description: Current explicit configuration. Disabled is a valid
+            release-gate state and includes a reason.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ChainConfig"
+  /chain/markets:
+    get:
+      operationId: getChainMarkets
+      tags: [chain]
+      summary: List projected finalized Solana launches
+      responses:
+        "200":
+          description: LaunchState projections backed by finalized account snapshots.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ChainMarketsResponse"
+        "503":
+          description: Indexer storage or chain health is unavailable.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ChainMarketsError"
+  /chain/markets/{launchState}:
+    get:
+      operationId: getChainMarket
+      tags: [chain]
+      summary: Get one projected finalized Solana launch
+      parameters:
+        - name: launchState
+          in: path
+          required: true
+          schema:
+            type: string
+          description: LaunchLab PoolState account public key.
+      responses:
+        "200":
+          description: LaunchState projection backed by finalized account snapshots.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ChainMarketResponse"
+        "404":
+          description: Market is not present in finalized indexed history.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ChainMarketError"
+        "503":
+          description: Indexer storage or chain health is unavailable.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ChainMarketError"
+  /chain/markets/{launchState}/history:
+    get:
+      operationId: getChainMarketHistory
+      tags: [chain]
+      summary: Get finalized LaunchLab trade history
+      parameters:
+        - name: launchState
+          in: path
+          required: true
+          schema:
+            type: string
+          description: LaunchLab PoolState account public key.
+      responses:
+        "200":
+          description: Trade instructions projected from finalized transactions.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ChainMarketHistoryResponse"
+        "400":
+          description: The optional limit query value is invalid.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ChainMarketHistoryError"
+        "404":
+          description: Market is not present in finalized indexed history.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ChainMarketHistoryError"
+        "503":
+          description: Indexer storage or chain health is unavailable.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ChainMarketHistoryError"
+  /chain/status:
+    get:
+      operationId: getChainStatus
+      tags: [chain]
+      summary: Get durable finalized Solana indexer health
+      responses:
+        "200":
+          description: Disabled release gate or healthy indexer.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ChainStatus"
+        "503":
+          description: Configured indexer cannot prove chain or reconciliation health.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ChainStatus"
+  /chain/metrics:
+    get:
+      operationId: getChainMetrics
+      tags: [chain]
+      summary: Get Solana indexer operational metrics
+      responses:
+        "200":
+          description: Prometheus text metrics without RPC or database secrets.
+          content:
+            text/plain:
+              schema:
+                type: string
+components:
+  schemas:
+    HealthStatus:
+      type: object
+      properties:
+        status:
+          type: string
+      required:
+        - status
+    TokenImageBinary:
+      type: string
+      format: binary
+      minLength: 1
+      maxLength: 4194304
+    TokenImageUploadResponse:
+      type: object
+      required:
+        - imageURL
+      properties:
+        imageURL:
+          type: string
+          format: uri-reference
+          description: Stable same-origin API URL for the public token image.
+    ErrorEnvelope:
+      type: object
+      required:
+        - error
+      properties:
+        error:
+          type: string
+    ChainConfig:
+      type: object
+      required:
+        - enabled
+      properties:
+        enabled:
+          type: boolean
+        reason:
+          type: string
+        cluster:
+          type: string
+          enum: [devnet, mainnet-beta]
+        programId:
+          type: string
+          description: Pinned Raydium LaunchLab program public key.
+        cpmmProgramId:
+          type: string
+          description: Pinned Raydium CPMM program public key.
+        platformPda:
+          type: string
+        startSlot:
+          type: integer
+          minimum: 0
+    ChainMarket:
+      type: object
+      required:
+        - cluster
+        - programId
+        - launchState
+        - status
+        - observedSlot
+        - accountHash
+        - decoded
+      properties:
+        cluster:
+          type: string
+          enum: [devnet, mainnet-beta]
+        programId:
+          type: string
+        launchState:
+          type: string
+        baseMint:
+          type: ["string", "null"]
+        quoteMint:
+          type: ["string", "null"]
+        creator:
+          type: ["string", "null"]
+        platform:
+          type: ["string", "null"]
+        baseVault:
+          type: ["string", "null"]
+        quoteVault:
+          type: ["string", "null"]
+        status:
+          type: string
+        virtualBase:
+          type: ["string", "null"]
+        virtualQuote:
+          type: ["string", "null"]
+        realBase:
+          type: ["string", "null"]
+        realQuote:
+          type: ["string", "null"]
+        mintAuthority:
+          type: ["string", "null"]
+        freezeAuthority:
+          type: ["string", "null"]
+        mintSupply:
+          type: ["string", "null"]
+        cpmmPool:
+          type: ["string", "null"]
+        observedSlot:
+          type: integer
+        observedSignature:
+          type: ["string", "null"]
+        accountHash:
+          type: string
+        decoded:
+          type: boolean
+    ChainMarketsResponse:
+      type: object
+      required:
+        - markets
+      properties:
+        markets:
+          type: array
+          items:
+            $ref: "#/components/schemas/ChainMarket"
+        enabled:
+          type: boolean
+        cluster:
+          type: string
+          enum: [devnet, mainnet-beta]
+        programId:
+          type: string
+        indexedThroughSlot:
+          type: integer
+        reason:
+          type: string
+        error:
+          type: string
+    ChainMarketsError:
+      type: object
+      required:
+        - markets
+        - enabled
+        - error
+      properties:
+        markets:
+          type: array
+          items:
+            $ref: "#/components/schemas/ChainMarket"
+        enabled:
+          type: boolean
+        error:
+          type: string
+    ChainMarketResponse:
+      type: object
+      required:
+        - market
+        - enabled
+      properties:
+        market:
+          $ref: "#/components/schemas/ChainMarket"
+        enabled:
+          type: boolean
+        cluster:
+          type: string
+          enum: [devnet, mainnet-beta]
+        programId:
+          type: string
+        indexedThroughSlot:
+          type: integer
+        error:
+          type: string
+    ChainMarketError:
+      type: object
+      required:
+        - market
+        - enabled
+        - error
+      properties:
+        market:
+          type: ["object", "null"]
+        enabled:
+          type: boolean
+        error:
+          type: string
+    ChainTrade:
+      type: object
+      required:
+        - cluster
+        - programId
+        - signature
+        - instructionIndex
+        - innerInstructionIndex
+        - slot
+        - side
+      properties:
+        cluster:
+          type: string
+          enum: [devnet, mainnet-beta]
+        programId:
+          type: string
+        signature:
+          type: string
+        instructionIndex:
+          type: integer
+        innerInstructionIndex:
+          type: integer
+        slot:
+          type: integer
+        launchState:
+          type: ["string", "null"]
+        trader:
+          type: ["string", "null"]
+        side:
+          type: string
+        baseAmount:
+          type: ["string", "null"]
+        quoteAmount:
+          type: ["string", "null"]
+        feeAmount:
+          type: ["string", "null"]
+    ChainMarketHistoryResponse:
+      type: object
+      required:
+        - market
+        - trades
+        - enabled
+      properties:
+        market:
+          $ref: "#/components/schemas/ChainMarket"
+        trades:
+          type: array
+          items:
+            $ref: "#/components/schemas/ChainTrade"
+        enabled:
+          type: boolean
+        cluster:
+          type: string
+          enum: [devnet, mainnet-beta]
+        programId:
+          type: string
+        indexedThroughSlot:
+          type: integer
+        error:
+          type: string
+    ChainMarketHistoryError:
+      type: object
+      required:
+        - market
+        - trades
+        - enabled
+        - error
+      properties:
+        market:
+          type: ["object", "null"]
+        trades:
+          type: array
+          items:
+            $ref: "#/components/schemas/ChainTrade"
+        enabled:
+          type: boolean
+        error:
+          type: string
+    ChainStatus:
+      type: object
+      required:
+        - enabled
+        - healthy
+        - workerRunning
+        - rpcGapCount
+        - reconciliationIssues
+        - backfillInProgress
+        - finalizedSlotLag
+        - alertStatus
+        - activeAlerts
+      properties:
+        enabled:
+          type: boolean
+        healthy:
+          type: boolean
+        workerRunning:
+          type: boolean
+        cluster:
+          type: string
+          enum: [devnet, mainnet-beta]
+        programId:
+          type: string
+        cpmmProgramId:
+          type: string
+        platformPda:
+          type: string
+        lastFinalizedSlot:
+          type: integer
+        indexedThroughSlot:
+          type: integer
+        lastRunAt:
+          type: string
+          format: date-time
+        lastSuccessAt:
+          type: string
+          format: date-time
+        error:
+          type: string
+        rpcGapCount:
+          type: integer
+        reconciliationIssues:
+          type: integer
+        backfillInProgress:
+          type: boolean
+        finalizedSlotLag:
+          type: integer
+        alertStatus:
+          type: string
+          enum: [ok, warning, critical]
+        activeAlerts:
+          type: array
+          items:
+            type: object
+            required: [code, severity, message, action, observedValue, threshold, firstObservedAt, lastObservedAt]
+            properties:
+              code:
+                type: string
+                enum: [FINALIZED_SLOT_LAG, REPEATED_RPC_GAPS, RECONCILIATION_FAILURE, TRACKED_ACCOUNT_MISMATCH, WORKER_STALLED]
+              severity:
+                type: string
+                enum: [warning, critical]
+              message:
+                type: string
+              action:
+                type: string
+              observedValue:
+                type: integer
+              threshold:
+                type: integer
+              firstObservedAt:
+                type: string
+                format: date-time
+              lastObservedAt:
+                type: string
+                format: date-time
+

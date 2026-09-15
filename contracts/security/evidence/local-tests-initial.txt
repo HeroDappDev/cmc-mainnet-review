@@ -1,0 +1,76 @@
+
+> @cmc/contracts@0.1.0 test /home/runner/workspace/contracts
+> HARDHAT_DISABLE_TELEMETRY_PROMPT=true hardhat test
+
+
+
+  Incident controls — current foundation limitations
+    1) owner can stop creation for a quote without stopping existing buys or sells
+    2) source outage blocks new creation but does not halt frozen-reference trading
+    3) ownership handover requires explicit old-keeper revocation
+    4) no caller can enable migration through the existing entry point
+
+  Launchpad economic tests (local Hardhat only)
+    current deployed-source curve
+      ✔ uses a fresh allowlisted 18-decimal reference and freezes it per market (74ms)
+      ✔ enforces reference freshness, quote allowlisting, first-buy minimum, fee bounds, slippage, and deadlines (94ms)
+      ✔ matches quoteBuy/quoteSell rounding and accounts every charged fee wei (107ms)
+      ✔ shows the completion refund, real proceeds, 200m LP discontinuity, and closed migration (69ms)
+      ✔ keeps holder distribution and protocol fee release explicitly owner-controlled (55ms)
+    independent proposed Pancake V2 graduation math
+      ✔ quantifies the all-proceeds/200m discontinuity and a feasible excess-retention alternative
+      ✔ shows that using all current proceeds would need more than the fixed 200m token reserve
+      ✔ provides two separately-labelled feasible constant changes for continuity
+      ✔ records the one-wei conservative completion case from the floored fee formula
+
+
+  9 passing (2s)
+  4 failing
+
+  1) Incident controls — current foundation limitations
+       owner can stop creation for a quote without stopping existing buys or sells:
+     Error: VM Exception while processing transaction: reverted with custom error 'TestnetOnly()'
+    at MockQuote.constructor (src/MockQuote.sol:18)
+    at EdrProviderWrapper.request (node_modules/.pnpm/hardhat@2.29.1_ts-node@10.9.2_@types+node@22.20.2_typescript@5.9.3__typescript@5.9.3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:452:41)
+    at async HardhatEthersSigner.sendTransaction (node_modules/.pnpm/@nomicfoundation+hardhat-ethers@3.1.3_ethers@6.17.0_hardhat@2.29.1_ts-node@10.9.2_@type_b6b8f9f6388e5b2e37e01fb654e2a725/node_modules/@nomicfoundation/hardhat-ethers/src/signers.ts:185:18)
+    at async ContractFactory.deploy (node_modules/.pnpm/ethers@6.17.0/node_modules/ethers/src.ts/contract/factory.ts:111:24)
+    at async fixture (test/IncidentControls.ts:10:19)
+    at async Context.<anonymous> (test/IncidentControls.ts:32:15)
+  
+
+  2) Incident controls — current foundation limitations
+       source outage blocks new creation but does not halt frozen-reference trading:
+     Error: VM Exception while processing transaction: reverted with custom error 'TestnetOnly()'
+    at MockQuote.constructor (src/MockQuote.sol:18)
+    at EdrProviderWrapper.request (node_modules/.pnpm/hardhat@2.29.1_ts-node@10.9.2_@types+node@22.20.2_typescript@5.9.3__typescript@5.9.3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:452:41)
+    at async HardhatEthersSigner.sendTransaction (node_modules/.pnpm/@nomicfoundation+hardhat-ethers@3.1.3_ethers@6.17.0_hardhat@2.29.1_ts-node@10.9.2_@type_b6b8f9f6388e5b2e37e01fb654e2a725/node_modules/@nomicfoundation/hardhat-ethers/src/signers.ts:185:18)
+    at async ContractFactory.deploy (node_modules/.pnpm/ethers@6.17.0/node_modules/ethers/src.ts/contract/factory.ts:111:24)
+    at async fixture (test/IncidentControls.ts:10:19)
+    at async Context.<anonymous> (test/IncidentControls.ts:49:15)
+  
+
+  3) Incident controls — current foundation limitations
+       ownership handover requires explicit old-keeper revocation:
+     Error: VM Exception while processing transaction: reverted with custom error 'TestnetOnly()'
+    at MockQuote.constructor (src/MockQuote.sol:18)
+    at EdrProviderWrapper.request (node_modules/.pnpm/hardhat@2.29.1_ts-node@10.9.2_@types+node@22.20.2_typescript@5.9.3__typescript@5.9.3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:452:41)
+    at async HardhatEthersSigner.sendTransaction (node_modules/.pnpm/@nomicfoundation+hardhat-ethers@3.1.3_ethers@6.17.0_hardhat@2.29.1_ts-node@10.9.2_@type_b6b8f9f6388e5b2e37e01fb654e2a725/node_modules/@nomicfoundation/hardhat-ethers/src/signers.ts:185:18)
+    at async ContractFactory.deploy (node_modules/.pnpm/ethers@6.17.0/node_modules/ethers/src.ts/contract/factory.ts:111:24)
+    at async fixture (test/IncidentControls.ts:10:19)
+    at async Context.<anonymous> (test/IncidentControls.ts:60:15)
+  
+
+  4) Incident controls — current foundation limitations
+       no caller can enable migration through the existing entry point:
+     Error: VM Exception while processing transaction: reverted with custom error 'TestnetOnly()'
+    at MockQuote.constructor (src/MockQuote.sol:18)
+    at EdrProviderWrapper.request (node_modules/.pnpm/hardhat@2.29.1_ts-node@10.9.2_@types+node@22.20.2_typescript@5.9.3__typescript@5.9.3/node_modules/hardhat/src/internal/hardhat-network/provider/provider.ts:452:41)
+    at async HardhatEthersSigner.sendTransaction (node_modules/.pnpm/@nomicfoundation+hardhat-ethers@3.1.3_ethers@6.17.0_hardhat@2.29.1_ts-node@10.9.2_@type_b6b8f9f6388e5b2e37e01fb654e2a725/node_modules/@nomicfoundation/hardhat-ethers/src/signers.ts:185:18)
+    at async ContractFactory.deploy (node_modules/.pnpm/ethers@6.17.0/node_modules/ethers/src.ts/contract/factory.ts:111:24)
+    at async fixture (test/IncidentControls.ts:10:19)
+    at async Context.<anonymous> (test/IncidentControls.ts:74:15)
+  
+
+
+
+ ELIFECYCLE  Test failed. See above for more details.

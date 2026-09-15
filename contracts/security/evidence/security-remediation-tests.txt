@@ -1,0 +1,41 @@
+
+> @cmc/contracts@0.1.0 test /home/runner/workspace/contracts
+> HARDHAT_DISABLE_TELEMETRY_PROMPT=true hardhat test
+
+Compiled 1 Solidity file successfully (evm target: paris).
+
+
+  Incident controls — current foundation limitations
+    ✔ owner can stop creation for a quote without stopping existing buys or sells (2030ms)
+    ✔ source outage blocks new creation but does not halt frozen-reference trading (59ms)
+    ✔ ownership handover requires acceptance and atomically revokes the outgoing owner as keeper (87ms)
+    ✔ cancelled or replaced handovers grant no authority and preserve unrelated keepers (66ms)
+    ✔ renouncing ownership clears a pending handover and the outgoing owner's keeper role (52ms)
+    ✔ no caller can enable migration through the existing entry point (58ms)
+
+  Launchpad economic tests (local Hardhat only)
+    current deployed-source curve
+      ✔ uses a fresh allowlisted 18-decimal reference and freezes it per market (61ms)
+      ✔ enforces reference freshness, quote allowlisting, first-buy minimum, fee bounds, slippage, and deadlines (100ms)
+      ✔ matches quoteBuy/quoteSell rounding and accounts every charged fee wei (61ms)
+      ✔ shows the completion refund, real proceeds, 200m LP discontinuity, and closed migration (55ms)
+      ✔ keeps holder distribution and protocol fee release explicitly owner-controlled (65ms)
+    independent proposed Pancake V2 graduation math
+      ✔ quantifies the all-proceeds/200m discontinuity and a feasible excess-retention alternative
+      ✔ shows that using all current proceeds would need more than the fixed 200m token reserve
+      ✔ provides two separately-labelled feasible constant changes for continuity
+      ✔ records the one-wei conservative completion case from the floored fee formula
+
+  Launchpad quote custody security (local Hardhat only)
+    ✔ uses the exact minimal final gross for 100, 200, and 300 bps fees (163ms)
+    ✔ rejects inbound fee and sender-surcharge tokens without changing market state (129ms)
+    ✔ rejects outbound taxes on sells, refunds, and holder/protocol payouts (157ms)
+    ✔ does not let a short inbound transfer in one market use another market's custody (73ms)
+    ✔ rejects rebase loss during a transfer and before the next operation (49ms)
+    ✔ rejects quote-token callback reentrancy atomically (59ms)
+    ✔ accepts ordinary buy, sell, refund, and fee payouts with exact deltas (63ms)
+    ✔ keeps a self-recipient payout as custody rather than erasing its liability (60ms)
+
+
+  23 passing (3s)
+

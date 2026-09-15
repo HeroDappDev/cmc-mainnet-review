@@ -1,0 +1,75 @@
+{
+  "evidenceVersion": 1,
+  "observedAt": "2026-09-15T02:07:01.381Z",
+  "cluster": "mainnet-beta",
+  "canonicalPackageSha256": "faf482baedd7c819ede1aa1690c78c59f7cb02e20b153b905870bf8178d796a3",
+  "raydiumPackageSha256": "b0bdff5cd774c353ef3b06a28595515f09264cbba1e912f78d03754636238b8a",
+  "programBaselines": {
+    "squads": {
+      "programDataAddress": "Fy3YMJCvwbAXUgUM5b91ucUVA3jYzwWLHL3MwBqKsh8n",
+      "deployedSlot": 302582236,
+      "upgradeAuthority": null,
+      "codeSha256": "00f38dd273a3809bba580b3feacd2cf35e0ce174d424852ab9a32a888eaf640e"
+    },
+    "launchLab": {
+      "programDataAddress": "D2QX47Tv2uhNNwFcnLCyJtLMZ4WGmc7eXxvyEmD6zNUh",
+      "deployedSlot": 446221802,
+      "upgradeAuthority": "FytDrVzDybM1TwFQPGb8qaxZR7dBCzNeqT3vtQsceZQK",
+      "codeSha256": "4c87da8e9fdeda6daf9d141e409577733d6248ae78f694557176fe2709a09657"
+    },
+    "cpmm": {
+      "programDataAddress": "DMawCQzbgNTmbzaESc7o6pvL1KAeetY8zA7jNpzntHhU",
+      "deployedSlot": 445763504,
+      "upgradeAuthority": "FytDrVzDybM1TwFQPGb8qaxZR7dBCzNeqT3vtQsceZQK",
+      "codeSha256": "36537be95ba356056fa38b2847d928078c68bf6cd79b875c140e157e6452cc71"
+    }
+  },
+  "transactionIndex": "2",
+  "transactionPda": "CsbvYPaxVHcLaFsdy1WzQC8gAc79R8KCgkkZkPT7r9hp",
+  "proposalPda": "A2aRNWxquB7NyftQ7XiHs5YpCSP46mJJtDLgHbt9QSiQ",
+  "creator": "Atj7ip3wC544DRGJqeVEYFJpPc6C4dA6VvqMPmesdij9",
+  "governance": {
+    "threshold": 2,
+    "timeLock": 0,
+    "transactionIndex": "1",
+    "staleTransactionIndex": "1",
+    "configAuthority": "11111111111111111111111111111111",
+    "members": [
+      {
+        "key": "5hgkueEk5Y1iNP1Q35hN7iahjivvk4d6zGzKKsnxJaNf",
+        "permissionsMask": 7
+      },
+      {
+        "key": "Atj7ip3wC544DRGJqeVEYFJpPc6C4dA6VvqMPmesdij9",
+        "permissionsMask": 7
+      }
+    ]
+  },
+  "snapshotSlot": 447131839,
+  "blockhashSlot": 447131842,
+  "simulationSlot": 447131842,
+  "lastValidBlockHeight": 425174193,
+  "creatorBalanceLamports": 493957796,
+  "vaultBalanceLamports": 1000000,
+  "platformRentLamports": 5445760,
+  "lifecycleTransactionBytes": 1110,
+  "simulation": {
+    "err": {
+      "InstructionError": [
+        4,
+        {
+          "Custom": 1
+        }
+      ]
+    },
+    "unitsConsumed": 98829
+  },
+  "simulationReachedSquadsExecution": true,
+  "simulationReachedRaydiumCreatePlatform": true,
+  "blockers": [
+    "The Squads vault needs 5445760 lamports for Platform rent; it currently has 1000000.",
+    "Unsigned atomic Squads lifecycle simulation failed: {\"InstructionError\":[4,{\"Custom\":1}]}."
+  ],
+  "squadsExecutionSimulationPassed": false,
+  "safeToPropose": false
+}

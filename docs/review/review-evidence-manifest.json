@@ -1,0 +1,128 @@
+{
+  "schema": "cmc-review-evidence-manifest",
+  "version": 1,
+  "generatedAt": "2026-09-15T07:47:50.143Z",
+  "gitHead": "11a287547dcf6d2f733ea39259c316ce270e7b0a",
+  "buildId": "sha256:50ff53fb2da009a39c03613d84ea71eb5ac0626779716c71e54f9b1f1c2016ad",
+  "releaseStatus": {
+    "platform": "finalized Platform deployed",
+    "developmentNetworkReady": true,
+    "mainnetReleaseEnabled": false,
+    "signedMainnetReleaseRecordPresent": false,
+    "independentSecurityReviewComplete": false,
+    "legalReviewComplete": false
+  },
+  "mainnet": {
+    "cluster": "mainnet-beta",
+    "genesisHash": "5eykt4UsFv8P8NJdTREpY1vzqKqZKvdpKuc147dw2N9d",
+    "upgradeableLoader": "BPFLoaderUpgradeab1e11111111111111111111111",
+    "programs": {
+      "launchLab": {
+        "address": "LanMV9sAd7wArD4vJFi2qDdfnVhFxYSUg6eADduJ3uj",
+        "programDataAddress": "D2QX47Tv2uhNNwFcnLCyJtLMZ4WGmc7eXxvyEmD6zNUh",
+        "deployedSlot": 446221802,
+        "codeSha256": "4c87da8e9fdeda6daf9d141e409577733d6248ae78f694557176fe2709a09657",
+        "upgradeAuthority": "FytDrVzDybM1TwFQPGb8qaxZR7dBCzNeqT3vtQsceZQK"
+      },
+      "cpmm": {
+        "address": "CPMMoo8L3F4NbTegBCKVNunggL7H1ZpdTHKxQB5qKP1C",
+        "programDataAddress": "DMawCQzbgNTmbzaESc7o6pvL1KAeetY8zA7jNpzntHhU",
+        "deployedSlot": 445763504,
+        "codeSha256": "36537be95ba356056fa38b2847d928078c68bf6cd79b875c140e157e6452cc71",
+        "upgradeAuthority": "FytDrVzDybM1TwFQPGb8qaxZR7dBCzNeqT3vtQsceZQK"
+      },
+      "squads": {
+        "address": "SQDS4ep65T869zMMBKyuUq6aD6EgTu8psMjkvj52pCf",
+        "programDataAddress": "Fy3YMJCvwbAXUgUM5b91ucUVA3jYzwWLHL3MwBqKsh8n",
+        "deployedSlot": 302582236,
+        "codeSha256": "00f38dd273a3809bba580b3feacd2cf35e0ce174d424852ab9a32a888eaf640e",
+        "upgradeAuthority": null
+      }
+    },
+    "governance": {
+      "multisig": "54BBLCExgxDZZdMVa5CYFdoHAMJSyeZFUppXiBo91uJN",
+      "threshold": 2,
+      "members": [
+        {
+          "key": "5hgkueEk5Y1iNP1Q35hN7iahjivvk4d6zGzKKsnxJaNf",
+          "permissionsMask": 7
+        },
+        {
+          "key": "Atj7ip3wC544DRGJqeVEYFJpPc6C4dA6VvqMPmesdij9",
+          "permissionsMask": 7
+        }
+      ],
+      "transactionIndex": "1",
+      "nextTransactionIndex": "2",
+      "vaultIndex": 0,
+      "vault": "F2YSJfgpX76bCWqhAANfbp2gEhzUeTLvLHWxqZZAL5bG",
+      "transactionPda": "CsbvYPaxVHcLaFsdy1WzQC8gAc79R8KCgkkZkPT7r9hp",
+      "proposalPda": "A2aRNWxquB7NyftQ7XiHs5YpCSP46mJJtDLgHbt9QSiQ",
+      "creator": "Atj7ip3wC544DRGJqeVEYFJpPc6C4dA6VvqMPmesdij9"
+    },
+    "accounts": {
+      "platformPda": "87PieZueSrA3VmuqJGQAF3KL8J56xy6etT3sQzA5CW5h",
+      "platformPdaBump": 254,
+      "cpmmConfig": "D4FPEruKEHrG5TenZ2mpDGEfu1iUvTiqBxvpU8HLBvC2"
+    },
+    "evidenceSignature": null,
+    "evidenceSignatures": [],
+    "signedReleaseRecord": null,
+    "evidenceFingerprints": {
+      "canonicalPackageSha256": "faf482baedd7c819ede1aa1690c78c59f7cb02e20b153b905870bf8178d796a3",
+      "raydiumPackageSha256": "b0bdff5cd774c353ef3b06a28595515f09264cbba1e912f78d03754636238b8a"
+    },
+    "fundingFingerprint": "feea820371d09450556c6e460af630b965bfabfbfab95a34cde916d904a877e6",
+    "fundingProofFingerprint": "f9990ac3f264cacee9261edf9b3548a7f178db7b39ddf4f0c51928039b87c627",
+    "observations": {
+      "squadsProofSnapshotSlot": 447131839,
+      "squadsProofBlockhashSlot": 447131842,
+      "squadsProofSimulationSlot": 447131842,
+      "fundingObservedAt": "2026-09-15T04:12:26.623Z",
+      "fundingRecord": "docs/evidence/solana-mainnet-vault-funding-proofs/solana-mainnet-vault-funding-proof-2026-09-15T04-12-26.623Z-feea820371d0.json"
+    }
+  },
+  "filesExcludeSelf": true,
+  "files": [
+    {
+      "path": "docs/evidence/solana-mainnet-squads-platform-proof.json",
+      "sha256": "24629509269e66d12a23fe52dc878ef8c1545524065c9afd964affbbf49f43dc"
+    },
+    {
+      "path": "docs/evidence/solana-mainnet-vault-funding-proof-index.json",
+      "sha256": "55b8875a700eddbe0a4c6fb731dd405d75dcea9f3e415f630992d89fe4592f7a"
+    },
+    {
+      "path": "docs/evidence/solana-mainnet-vault-funding-proof.json",
+      "sha256": "271ffc0743e126431468146e047a3173e50a629f1557878ff4a071b9662f2fe8"
+    },
+    {
+      "path": "docs/evidence/solana-mainnet-vault-funding-proofs/solana-mainnet-vault-funding-proof-2026-09-15T04-12-26.623Z-feea820371d0.json",
+      "sha256": "9aaf894ccc5c5c5be43b980e4c057d86d1319568826cb0ca3e63531bb7656857"
+    },
+    {
+      "path": "docs/review/README.md",
+      "sha256": "ffa5b2282ddc3b441a0dd3adce1e4c14fddf717e6e7b9aeadd81e393fabe5bfd"
+    },
+    {
+      "path": "docs/review/legal-product-facts.md",
+      "sha256": "9be5784c3fe02e3010f108d0973242056e26740b9d324096a22091940fe09764"
+    },
+    {
+      "path": "docs/review/legal-review-submission.md",
+      "sha256": "8dfc0bb5e524a0ae87fceb911ac2bafe7e4f1753e2b3474a388b446f97abefeb"
+    },
+    {
+      "path": "docs/review/security-review-scope.md",
+      "sha256": "1e3b71fa3d53a4df6af1430dde9b2254f95071fa272f7e9db0a7d376fe242a35"
+    },
+    {
+      "path": "docs/review/security-review-submission.md",
+      "sha256": "d6f999be0beea0a8e5ab922bd695c4f772ef9416f23a2830bb7d4de65e09cf9e"
+    },
+    {
+      "path": "docs/solana-mainnet-release-controls.md",
+      "sha256": "3a166a9c9b0bcf9da37806b22e16c9dab390d8a8363eb9993a06094d2233ea45"
+    }
+  ]
+}

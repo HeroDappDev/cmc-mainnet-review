@@ -1,0 +1,23 @@
+kind = "web"
+previewPath = "/"
+title = "Commodity Markets Capital"
+description = "SOL-first commodity-reference token launchpad targeting Raydium LaunchLab and CPMM graduation, with local simulation and fail-closed mainnet readiness."
+version = "1.0.0"
+id = "artifacts/cmc"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 19068
+
+[services.development]
+run = "pnpm --filter @workspace/cmc run preview"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/cmc", "run", "build" ]
+run = [ "pnpm", "--filter", "@workspace/cmc", "run", "start" ]
+
+[services.env]
+PORT = "19068"
+BASE_PATH = "/"

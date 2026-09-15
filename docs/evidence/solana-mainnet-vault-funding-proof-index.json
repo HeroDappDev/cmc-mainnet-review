@@ -1,0 +1,45 @@
+{
+  "indexVersion": 1,
+  "authorizationBoundary": "read-only-evidence-index-no-transfer-proposal-signing-submission-or-enablement",
+  "reviewedRecord": {
+    "path": "solana-mainnet-vault-funding-proofs/solana-mainnet-vault-funding-proof-2026-09-15T04-12-26.623Z-feea820371d0.json",
+    "observedAt": "2026-09-15T04:12:26.623Z",
+    "evidenceFingerprintSha256": "feea820371d09450556c6e460af630b965bfabfbfab95a34cde916d904a877e6"
+  },
+  "latestObservation": {
+    "path": "solana-mainnet-vault-funding-proofs/solana-mainnet-vault-funding-proof-2026-09-15T04-12-26.623Z-feea820371d0.json",
+    "observedAt": "2026-09-15T04:12:26.623Z",
+    "evidenceFingerprintSha256": "feea820371d09450556c6e460af630b965bfabfbfab95a34cde916d904a877e6"
+  },
+  "driftFromReviewed": {
+    "reviewRequired": false,
+    "payerChanges": [],
+    "amountChanges": [],
+    "finalizedStateChange": {
+      "changed": false,
+      "beforeProofFingerprintSha256": "f9990ac3f264cacee9261edf9b3548a7f178db7b39ddf4f0c51928039b87c627",
+      "afterProofFingerprintSha256": "f9990ac3f264cacee9261edf9b3548a7f178db7b39ddf4f0c51928039b87c627"
+    },
+    "sourceProofFingerprintChange": {
+      "changed": false,
+      "before": "f9990ac3f264cacee9261edf9b3548a7f178db7b39ddf4f0c51928039b87c627",
+      "after": "f9990ac3f264cacee9261edf9b3548a7f178db7b39ddf4f0c51928039b87c627"
+    }
+  },
+  "reviewStatus": "matches-reviewed-record",
+  "reviewHistory": [
+    {
+      "reviewedAt": "2026-09-15T04:13:11.333Z",
+      "priorReviewedRecord": {
+        "path": "solana-mainnet-vault-funding-proof.json",
+        "observedAt": "2026-09-15T02:46:28.379Z",
+        "evidenceFingerprintSha256": "27970014f7de5c400a065600ebbfdf08954e4786176e79fd06d56c351f24dea3"
+      },
+      "promotedRecord": {
+        "path": "solana-mainnet-vault-funding-proofs/solana-mainnet-vault-funding-proof-2026-09-15T04-12-26.623Z-feea820371d0.json",
+        "observedAt": "2026-09-15T04:12:26.623Z",
+        "evidenceFingerprintSha256": "feea820371d09450556c6e460af630b965bfabfbfab95a34cde916d904a877e6"
+      }
+    }
+  ]
+}

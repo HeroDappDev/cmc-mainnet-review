@@ -1,0 +1,17 @@
+# Internal AI-assisted readiness review — not an independent audit
+
+**FAIL — the current contracts are suitable only for the explicitly bounded testnet foundation and do not satisfy the ECONOMIC_SPEC production release gates.** This is an internal readiness review, not an independent audit; no final economic option, quote/source manifest, LP custody policy, or governance design is approved, so final-design safety cannot be assessed.
+
+**Critical findings / analysis**
+
+1. **Critical — known blocked feature, not an implementation regression: completed markets strand users and assets.** `Launchpad.sol:249-254,314-317,394-401` closes buys/sells and permanently reverts migration; the 200M reserve and real proceeds have no migration, redemption, timeout, cancellation, or recovery path. Preconditions: the final curve token is sold. Remediation: deploy a new, independently reviewed implementation of the approved A/B/C/D policy with pending/graduated states, atomic V2 integration, LP custody, surplus handling, and bounded recovery. Retest: completion, retry/replay, pre-seeded-pair griefing, timeout/redemption, and full asset reconciliation tests.
+
+2. **High — defect: incompatible quote tokens can make pooled custody insolvent.** `Launchpad.sol:126-131,303-311,210-217` checks only decimals and credits requested amounts without measuring actual balance deltas. A fee-on-transfer, rebasing, upgradeable, or otherwise adversarial allowlisted token can underfund one market while state records full proceeds; refunds/sells can consume balances belonging to other markets sharing that quote. Preconditions: owner allowlists such a token or an allowlisted token changes behavior. Remediation: enforce exact inbound/outbound balance deltas and a reviewed immutable quote manifest. Retest with fee, rebase, callback, malformed-return, and multi-market cross-subsidy adversarial tokens.
+
+3. **High — known governance/incident-control blocker: authority handover is unsafe and highly discretionary.** `PriceReferenceFeed.sol:32-40,50-58` leaves the initial owner as keeper after ownership transfer; that old key can continue publishing arbitrary positive prices. OpenZeppelin `Ownable` is one-step/renounceable, while `Launchpad.sol:135-139,258-288` lets one owner redirect and release accrued fee funds or choose arbitrary “holders.” `deploy-testnet.ts:20-45` leaves deployer as owner, keeper, and both recipients. Remediation: approved multisig/timelock and role handoff with atomic old-keeper revocation; freeze funded-market destinations/policies and add operational runbooks/monitoring. Retest complete ownership/keeper transfer, compromised-old-key, renounce/mistyped-transfer, unauthorized payout, and emergency creation-disable scenarios.
+
+4. **Low — acknowledged defect:** completion may consume one excess quote wei (`Launchpad.sol:338-356`; spec lines 58-64). Correct exact-minimum math before promising minimal refunds; retain boundary/property tests.
+
+**Security:** Serious custody and privileged-control risks are described above; no hardcoded secrets observed.
+
+**Next actions:** (1) keep all mainnet/migration gates closed; (2) obtain signed economic/governance manifests before implementation; (3) remediate and fuzz/fork-test the new deployment, then commission an independent review. Local `--no-compile` tests reached 13 passing; they characterize limitations and do not satisfy the missing adversarial/fork gates.

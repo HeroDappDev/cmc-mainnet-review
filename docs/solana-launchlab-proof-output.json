@@ -1,0 +1,135 @@
+{
+  "generatedAt": "2026-09-13T19:43:55.962Z",
+  "proofKind": "read-only-devnet-verification-and-deterministic-dry-run",
+  "graduationEvidenceStatus": "not-verified",
+  "safety": {
+    "networkTransactionSubmitted": false,
+    "walletLoaded": false,
+    "secretKeyUsed": false,
+    "realFundsMoved": false
+  },
+  "liveDevnetEvidence": {
+    "rpc": "https://api.devnet.solana.com",
+    "launchLabProgram": {
+      "address": "DRay6fNdQ5J82H7xV6uq2aV3mNrUZ1J4PgSKsWgptcm6",
+      "executable": true,
+      "owner": "BPFLoaderUpgradeab1e11111111111111111111111",
+      "slot": 497872548
+    },
+    "cpmmProgram": {
+      "address": "DRaycpLY18LhpbydsBWbVJtxpNv9oXPgjRSfpF2bWpYb",
+      "executable": true,
+      "owner": "BPFLoaderUpgradeab1e11111111111111111111111",
+      "slot": 497872548
+    },
+    "raydiumConfigEndpoint": "https://launch-mint-v1-devnet.raydium.io/main/configs",
+    "launchConfig": {
+      "key": {
+        "name": "Constant Product Curve",
+        "pubKey": "7ZR4zD7PYfY2XxoG1Gxcy2EgEeGYrpxrwzPuwdUBssEt",
+        "curveType": 0,
+        "migrateFee": "0",
+        "tradeFeeRate": "2500",
+        "mintB": "So11111111111111111111111111111111111111112",
+        "requiresPlatformAuth": false
+      },
+      "mintInfoB": {
+        "symbol": "dwSOL",
+        "name": "dwSOL",
+        "decimals": 9,
+        "programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+      },
+      "defaultParams": {
+        "supplyInit": "1000000000000000",
+        "totalSellA": "793100000000000",
+        "totalFundRaisingB": "85000000000"
+      }
+    }
+  },
+  "sampleMarket": {
+    "name": "CMC Gold Reference Market",
+    "symbol": "CMCGLD",
+    "commodityReference": "Gold reference price; informational only",
+    "quote": "dwSOL",
+    "quoteMint": "So11111111111111111111111111111111111111112",
+    "quoteModel": "Native SOL is the curve and settlement quote. Commodity prices and SOL/USD are informational references only.",
+    "supply": "1000000000",
+    "curveAllocation": "800000000",
+    "migrationAllocation": "200000000",
+    "lockedAllocation": "0",
+    "curveType": "Raydium LaunchLab constant product",
+    "fundingTargetQuote": "16",
+    "openingFdvQuote": "4.999999",
+    "graduationFdvQuote": "80",
+    "openingPriceQuotePerToken": "0.000000004999",
+    "graduationPriceQuotePerToken": "0.000000080000",
+    "valuationRatio": "16.000000",
+    "launchLabVirtualBase": "1066666666666666",
+    "launchLabVirtualQuote": "5333333333",
+    "protocolTradeFeeRatePpm": "2500",
+    "platformFee": "Not modeled in the reserve proof. Proposed policy is a fixed 0.50% CMC platform fee, subject to deployed program limits and Platform PDA verification."
+  },
+  "indexedMarketProjection": {
+    "cluster": "devnet",
+    "status": "dry-run-not-evidence",
+    "source": "deterministic dry-run anchored to live devnet program/config reads",
+    "programId": "DRay6fNdQ5J82H7xV6uq2aV3mNrUZ1J4PgSKsWgptcm6",
+    "configId": "7ZR4zD7PYfY2XxoG1Gxcy2EgEeGYrpxrwzPuwdUBssEt",
+    "quoteMint": "So11111111111111111111111111111111111111112",
+    "totalNetQuote": "16",
+    "simulatedBaseSold": "799999999.981442",
+    "events": [
+      {
+        "kind": "buy",
+        "label": "initial commodity-market purchase",
+        "simulated": true,
+        "netQuoteIn": "1",
+        "protocolGrossEstimate": "1.002506",
+        "baseOut": "168421052.640443",
+        "cumulativeBaseSold": "168421052.640443",
+        "cumulativeNetQuote": "1",
+        "marginalPriceSol": "0.000000007050"
+      },
+      {
+        "kind": "sell",
+        "label": "illustrative holder exit",
+        "simulated": true,
+        "baseIn": "10000000",
+        "netQuoteOutBeforeFees": "0.069731",
+        "cumulativeBaseSold": "158421052.640443",
+        "cumulativeNetQuote": "0.930268",
+        "marginalPriceSol": "0.000000006896"
+      },
+      {
+        "kind": "buy",
+        "label": "funding-target completion purchase",
+        "simulated": true,
+        "netQuoteIn": "15.069731",
+        "protocolGrossEstimate": "15.1075",
+        "baseOut": "641578947.340999",
+        "cumulativeBaseSold": "799999999.981442",
+        "cumulativeNetQuote": "16",
+        "marginalPriceSol": "0.000000079999"
+      },
+      {
+        "kind": "graduation-assumption",
+        "label": "LaunchLab closes the curve and migrates to CPMM",
+        "simulated": true,
+        "networkTransactionSubmitted": false,
+        "cpmmBaseReserve": "200000000",
+        "cpmmQuoteReserve": "16",
+        "cpmmOpeningPriceSol": "0.000000080000",
+        "terminalCurvePriceSol": "0.000000079999",
+        "note": "The proof verifies program availability and protocol math but does not create a mint, Platform PDA, LaunchState, or CPMM pool."
+      }
+    ]
+  },
+  "conclusions": [
+    "The official LaunchLab and CPMM programs are executable on Solana devnet.",
+    "Raydium exposes a zero-migration-fee constant-product native-SOL devnet config.",
+    "With 1B supply, 800M sold, 200M migrated, and zero migration fee, the LaunchLab SDK formula fixes the valuation ratio at 16x.",
+    "A 5 SOL opening FDV therefore maps to 80 SOL at graduation and a 16 SOL net funding target.",
+    "USD equivalents move with SOL/USD and must never be presented as fixed protocol thresholds.",
+    "CMC does not promise holder rewards, automatic buybacks, or a creator fee; the proposed platform fee remains subject to deployed Platform PDA verification."
+  ]
+}
